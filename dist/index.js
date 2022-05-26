@@ -63,7 +63,7 @@ var HubspotForm = function (_React$Component) {
 						// ref: https://developers.hubspot.com/docs/methods/forms/advanced_form_options
 						var formData = $form.serializeArray();
 						if (props.customFields.length > 0) {
-							formData.push(props.customField.map(function (data) {
+							formData.push(props.customFields.map(function (data) {
 								return {
 									name: data.name,
 									value: data.value
