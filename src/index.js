@@ -31,7 +31,13 @@ class HubspotForm extends React.Component {
 				onFormSubmit : ($form) => {
 					// ref: https://developers.hubspot.com/docs/methods/forms/advanced_form_options
 					var formData = $form.serializeArray();
-					this.props.onSubmit(formData);	
+					if (props.customFields.length > 0) {
+						formData.push(props.customField.map(data => ({
+							name: data.name,
+							value: data.value
+						})))
+					}
+					this.props.onSubmit(formData);
 				}
 			}
 			window.hbspt.forms.create(options)
